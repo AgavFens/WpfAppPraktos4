@@ -20,7 +20,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Button Content="Редактировать Тест" x:Name="redaktirovanie" HorizontalAlignment="Center" Width="256" Background="BurlyWood" Click="redaktirovanie_Click" Grid.Row="0"/>
-            <TextBox x:Name="Password" MaxWidth="300" Background="Wheat" BorderBrush="Black" VerticalAlignment="Top" HorizontalAlignment="Center" MinWidth="300" Grid.Row="1"/>
+            <TextBox x:Name="Password" MaxWidth="300" Background="Wheat" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="300" Grid.Row="1"/>
         </Grid>
     </Grid>
 </Window>

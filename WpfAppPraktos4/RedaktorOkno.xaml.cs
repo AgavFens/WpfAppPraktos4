@@ -22,8 +22,8 @@ namespace WpfAppPraktos4
         public RedaktorOkno()
         {
             InitializeComponent();
-            DataGridAgav.ItemsSource = humanlist;
-            humanlist = JsonAgav.myDeserialize<List<Human>>();
+            humanlist = JsonAgav.myDeserialize<List<Human>>(); 
+            DataGridAgav.ItemsSource = humanlist; 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

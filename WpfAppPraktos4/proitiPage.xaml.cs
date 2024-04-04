@@ -1,18 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfAppPraktos4
@@ -29,10 +21,10 @@ namespace WpfAppPraktos4
             if (index < humanlist.Count)
             {
                 NameTest.Content = humanlist[index].Name;
+                Description.Content = humanlist[index].Description;
                 JmiSuda1.Content = humanlist[index].Answer1;
                 JmiSuda2.Content = humanlist[index].Answer2;
                 JmiSuda3.Content = humanlist[index].Answer3;
-                Description.Content = humanlist[index].Description;
             }
         }
         public proitiPage()
@@ -44,7 +36,7 @@ namespace WpfAppPraktos4
 
         private void JmiSuda1_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToInt32(humanlist[index].CorrectOption) == 2)
+            if (Convert.ToInt32(humanlist[index].CorrectOption) == 0)
             {
                 correct = correct + 1;
             }
@@ -85,7 +77,7 @@ namespace WpfAppPraktos4
         }
         private void JmiSuda3_Click(object sender, RoutedEventArgs e)
         {
-            if (Convert.ToInt32(humanlist[index].CorrectOption) == 0)
+            if (Convert.ToInt32(humanlist[index].CorrectOption) == 2)
             {
                 correct = correct + 1;
             }
@@ -100,7 +92,7 @@ namespace WpfAppPraktos4
             }
             else if (index == humanlist.Count - 1)
             {
-                NameTest.Content = $"Тест был пройден, правильных ответов  {correct} , неправильных {incorrect}";
+                NameTest.Content = $"Тест был пройден, правильных ответов {correct}, неправильных {incorrect}";
             }
         }
     }

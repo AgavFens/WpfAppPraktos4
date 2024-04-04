@@ -11,14 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfAppPraktos4
 {
     public partial class TestOkno : Window
     {
+        List<Human> humanlist = new List<Human>();
         public TestOkno()
         {
             InitializeComponent();
+
         }
 
         private void redaktor_Click(object sender, RoutedEventArgs e)
@@ -28,9 +31,17 @@ namespace WpfAppPraktos4
 
         private void proiti_Click(object sender, RoutedEventArgs e)
         {
-            //Frameagav.Content = new Pusto();
-            Frameagav.Content = new proitiPage();
+            List<Human> testlist = JsonAgav.myDeserialize<List<Human>>();
+            if (testlist == null || testlist.Count == 0)
+            {
+                Frameagav.Content = new Pusto();
+            }
+            else if (testlist != null && testlist.Count > 0)
+            {
+                Frameagav.Content = new proitiPage();
+            }
         }
+
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
