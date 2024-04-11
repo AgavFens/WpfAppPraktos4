@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="RedaktorOkno" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="DataGridAgav" VerticalAlignment="Top" HorizontalAlignment="Center" Background="Wheat"/>
-        <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="Wheat" Background="Black" BorderBrush="Black" Click="Button_Click">Изменить данные</Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="359*"/>
+            <RowDefinition Height="75*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="exit" Content="Выйти" Click="exit_Click"/>
+            <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Foreground="Wheat" Background="Black" BorderBrush="Black" Grid.Column="1" Click="Button_Click">Изменить данные</Button>
+        </Grid>
+        <DataGrid x:Name="DataGridAgav" VerticalAlignment="Top" HorizontalAlignment="Center" Background="Wheat" Grid.Row="0"/>
     </Grid>
 </Window>

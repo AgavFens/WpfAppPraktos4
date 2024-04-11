@@ -22,7 +22,7 @@ namespace WpfAppPraktos4
         public RedaktorOkno()
         {
             InitializeComponent();
-            humanlist = JsonAgav.myDeserialize<List<Human>>(); 
+            humanlist = JsonHelper.Deserialize<List<Human>>(); 
             DataGridAgav.ItemsSource = humanlist; 
         }
 
@@ -36,7 +36,18 @@ namespace WpfAppPraktos4
                     humanlist2.Add(item2);
                 }
             }
-            JsonAgav.mySerialize(humanlist2);
+
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string filePath = desktop + "\\agavtop.json";
+
+            JsonHelper.Serialize(humanlist2, filePath);
         }
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
     }
 }

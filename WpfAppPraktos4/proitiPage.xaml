@@ -12,14 +12,24 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label x:Name="NameTest" Background="Wheat" Foreground="Black">Название теста</Label>
-        <Label x:Name="Description" Background="Wheat" Grid.Row="1" Foreground="Black">Описание</Label>
-        <Button x:Name="JmiSuda1" Grid.Row="2" Foreground="Black" Background="Wheat" Click="JmiSuda1_Click">Выбор 1</Button>
-        <Button x:Name="JmiSuda2" Grid.Row="3" Foreground="Black" Background="Wheat" Click="JmiSuda2_Click">Выбор 2</Button>
-        <Button x:Name="JmiSuda3" Grid.Row="4" Foreground="Black" Background="Wheat" Click="JmiSuda3_Click">Выбор 3</Button>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        <Label x:Name="Description" Background="Wheat" Grid.Column="1" Foreground="Black">Описание</Label>
+        <Label x:Name="NameTest" Background="Wheat" Foreground="Black" Grid.Column="0" Grid.Row="0">Название теста</Label>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        <Button x:Name="JmiSuda1" Grid.Column="0" Foreground="Black" Background="Wheat" Click="JmiSuda1_Click">Выбор 1</Button>
+        <Button x:Name="JmiSuda2" Grid.Column="1" Foreground="Black" Background="Wheat" Click="JmiSuda2_Click">Выбор 2</Button>
+        <Button x:Name="JmiSuda3" Grid.Column="2" Foreground="Black" Background="Wheat" Click="JmiSuda3_Click">Выбор 3</Button>
+        </Grid>
     </Grid>
 </Page>

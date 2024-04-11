@@ -1,27 +1,40 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace WpfAppPraktos4
 {
-    internal class JsonAgav
+    internal class JsonHelper
     {
-        public static void mySerialize<T>(T notebook)
+        public static void Serialize<T>(T zametkis, string filePath)
         {
-            string PathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Тест.json";
-            string json = JsonConvert.SerializeObject(notebook);
-            File.WriteAllText(PathToDesktop, json);
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                filePath = desktop + "\\agavtop.json";
+            }
+
+            string json = JsonConvert.SerializeObject(zametkis);
+            File.WriteAllText(filePath, json);
         }
-        public static T myDeserialize<T>()
+
+        public static T Deserialize<T>(string filePath = null)
         {
-            string PathToDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Тест.json";
-            string json = File.ReadAllText(PathToDesktop);
-            T notebookdeser = JsonConvert.DeserializeObject<T>(json);
-            return notebookdeser;
+            if (string.IsNullOrWhiteSpace(filePath))
+            {
+                string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                filePath = desktop + "\\agavtop.json";
+            }
+
+            if (!File.Exists(filePath))
+            {
+                var emptyData = default(T);
+                Serialize(emptyData, filePath);
+            }
+
+            string json = File.ReadAllText(filePath);
+            T deserializedData = JsonConvert.DeserializeObject<T>(json);
+            return deserializedData;
         }
     }
 }

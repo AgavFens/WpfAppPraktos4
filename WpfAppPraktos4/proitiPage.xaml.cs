@@ -30,7 +30,7 @@ namespace WpfAppPraktos4
         public proitiPage()
         {
             InitializeComponent();
-            humanlist = JsonAgav.myDeserialize<List<Human>>();
+            humanlist = JsonHelper.Deserialize<List<Human>>();
             vibor();
         }
 

@@ -18,17 +18,10 @@ namespace WpfAppPraktos4
     {
         TestOkno testokno = new TestOkno();
         RedaktorOkno redaktorokno = new RedaktorOkno();
-        List<Human> humanlist = new List<Human>();
         string parol = "Агав";
         public MainWindow()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Тест.json"))
-            {
-                using (File.Create(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Тест.json")) { }
-                JsonAgav.mySerialize(humanlist);
-            }
         }
 
         private void test_Click(object sender, RoutedEventArgs e)

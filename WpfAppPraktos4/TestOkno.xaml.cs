@@ -17,7 +17,7 @@ namespace WpfAppPraktos4
 {
     public partial class TestOkno : Window
     {
-        List<Human> humanlist = new List<Human>();
+        List<Human> zametkich = new List<Human>();
         public TestOkno()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace WpfAppPraktos4
 
         private void proiti_Click(object sender, RoutedEventArgs e)
         {
-            List<Human> testlist = JsonAgav.myDeserialize<List<Human>>();
+            List<Human> testlist = JsonHelper.Deserialize<List<Human>>();
             if (testlist == null || testlist.Count == 0)
             {
                 Frameagav.Content = new Pusto();
